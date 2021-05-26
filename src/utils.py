@@ -1,6 +1,7 @@
 import os
 import pytest
 
+
 def get_env_variable(name) -> str:
     try:
         return os.environ[name]
