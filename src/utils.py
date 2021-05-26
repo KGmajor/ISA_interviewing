@@ -2,8 +2,8 @@ import os
 import pytest
 
 def get_env_variable(name) -> str:
-    try:
-        return os.environ[name]
-    except KeyError:
-        message = "Expected environment variable '{}' not set.".format(name)
-        raise Exception(message)
+    # try:
+    #     return os.environ[name]
+    # except KeyError:
+    #     message = "Expected environment variable '{}' not set.".format(name)
+    #     raise Exception(message)
