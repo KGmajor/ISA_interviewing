@@ -1,8 +1,8 @@
 services:
 - type: web
-  name: i_suck_at_interviewing
+  name: i_suck_at_interviewingBE
   env: python
-  repo: https://github.com/KGmajor/i_suck_at_interviewing
+  repo: https://github.com/KGmajor/i_suck_at_interviewingBE
   plan: starter
   branch: master
   healthCheckPath: /healthcheck
@@ -10,26 +10,26 @@ services:
   buildCommand: "pip install -r requirements.txt && ./run-migrations.sh"
   startCommand: "cd src && gunicorn main:app"
   envVars:
-  - fromGroup: i_suck_at_interviewing-settings
+  - fromGroup: i_suck_at_interviewingBE-settings
   - key: POSTGRES_URL
     fromDatabase:
-      name: i_suck_at_interviewing-db
+      name: i_suck_at_interviewingBE-db
       property: host
   - key: POSTGRES_USER
     fromDatabase:
-      name: i_suck_at_interviewing-db
+      name: i_suck_at_interviewingBE-db
       property: user
   - key: POSTGRES_PASSWORD
     fromDatabase:
-      name: i_suck_at_interviewing-db
+      name: i_suck_at_interviewingBE-db
       property: password
   - key: POSTGRES_DB
     fromDatabase:
-      name: i_suck_at_interviewing-db
+      name: i_suck_at_interviewingBE-db
       property: database 
 
 envVarGroups:
-- name: i_suck_at_interviewing-settings
+- name: i_suck_at_interviewingBE-settings
   envVars:
   - key: ENV
     value: production
@@ -38,5 +38,5 @@ envVarGroups:
     
 
 databases:
-- name: i_suck_at_interviewing-db
+- name: i_suck_at_interviewingBE-db
   databaseName: mydb
