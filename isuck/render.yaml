@@ -1,0 +1,42 @@
+services:
+- type: web
+  name: i_suck_at_interviewing
+  env: python
+  repo: https://github.com/KGmajor/i_suck_at_interviewing
+  plan: starter
+  branch: master
+  healthCheckPath: /healthcheck
+  # Use ./migrations.sh when running for the first time
+  buildCommand: "pip install -r requirements.txt && ./run-migrations.sh"
+  startCommand: "cd src && gunicorn main:app"
+  envVars:
+  - fromGroup: i_suck_at_interviewing-settings
+  - key: POSTGRES_URL
+    fromDatabase:
+      name: i_suck_at_interviewing-db
+      property: host
+  - key: POSTGRES_USER
+    fromDatabase:
+      name: i_suck_at_interviewing-db
+      property: user
+  - key: POSTGRES_PASSWORD
+    fromDatabase:
+      name: i_suck_at_interviewing-db
+      property: password
+  - key: POSTGRES_DB
+    fromDatabase:
+      name: i_suck_at_interviewing-db
+      property: database 
+
+envVarGroups:
+- name: i_suck_at_interviewing-settings
+  envVars:
+  - key: ENV
+    value: production
+  - key: FLASK_APP
+    value: src/main.py
+    
+
+databases:
+- name: i_suck_at_interviewing-db
+  databaseName: mydb
