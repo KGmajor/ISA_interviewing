@@ -1,5 +1,5 @@
 import os
-import pytest
+# import pytest
 
 
 def get_env_variable(name) -> str:

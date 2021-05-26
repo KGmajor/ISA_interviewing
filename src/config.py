@@ -12,7 +12,8 @@ class Config(object):
     # SQLAlchemy
     uri_template = "postgresql+psycopg2://{user}:{pw}@{url}/{db}"
     SQLALCHEMY_DATABASE_URI = uri_template.format(
-        user=POSTGRES_USER, pw=POSTGRES_PASSWORD, url=POSTGRES_URL, db=POSTGRES_DB
+        user=POSTGRES_USER, pw=POSTGRES_PASSWORD, 
+        url=POSTGRES_URL, db=POSTGRES_DB
     )
 
     # Silence the deprecation warning
