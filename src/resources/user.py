@@ -16,8 +16,8 @@ class UserList(Resource):
         Create user
         """
         request_json = request.get_json(silent=True)
-        username: str = request_json['username']
-        avatar_url: str = request_json.get('avatar_url', '')
+        username: str = request_json["username"]
+        avatar_url: str = request_json.get("avatar_url", "")
         try:
             user = UserRepository.create(username, avatar_url)
             return user, 200

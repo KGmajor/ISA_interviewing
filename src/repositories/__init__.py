@@ -3,4 +3,4 @@ from .user import UserRepository
 
 
 db = SQLAlchemy()
-__all__ = ['UserRepository']
+__all__ = ["UserRepository"]
