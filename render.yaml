@@ -1,8 +1,8 @@
 services:
 - type: web
-  name: i_suck_at_interviewingBE
+  name: ISA_interviewing
   env: python
-  repo: https://github.com/KGmajor/i_suck_at_interviewingBE
+  repo: https://github.com/KGmajor/ISA_interviewing
   plan: starter
   branch: master
   healthCheckPath: /healthcheck
@@ -10,26 +10,26 @@ services:
   buildCommand: "pip install -r requirements.txt && ./run-migrations.sh"
   startCommand: "cd src && gunicorn main:app"
   envVars:
-  - fromGroup: i_suck_at_interviewingBE-settings
+  - fromGroup: ISA_interviewing-settings
   - key: POSTGRES_URL
     fromDatabase:
-      name: i_suck_at_interviewingBE-db
+      name: ISA_interviewing-db
       property: host
   - key: POSTGRES_USER
     fromDatabase:
-      name: i_suck_at_interviewingBE-db
+      name: ISA_interviewing-db
       property: user
   - key: POSTGRES_PASSWORD
     fromDatabase:
-      name: i_suck_at_interviewingBE-db
+      name: ISA_interviewing-db
       property: password
   - key: POSTGRES_DB
     fromDatabase:
-      name: i_suck_at_interviewingBE-db
+      name: ISA_interviewing-db
       property: database 
 
 envVarGroups:
-- name: i_suck_at_interviewingBE-settings
+- name: ISA_interviewing-settings
   envVars:
   - key: ENV
     value: production
@@ -38,5 +38,5 @@ envVarGroups:
     
 
 databases:
-- name: i_suck_at_interviewingBE-db
+- name: ISA_interviewing-db
   databaseName: mydb

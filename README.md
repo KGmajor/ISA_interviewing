@@ -1,4 +1,4 @@
-# i_suck_at_interviewingBE
+# ISA_interviewing
 This repo is where we host our open-source website and soon to be member hub.
 
 ## Contributing
@@ -86,7 +86,7 @@ Go live with a Continuous Deployment Pipeline using GitHub and Render's Infrastr
 Ensure that you are using the GitHub username and project slug that you have entered earlier when cookie cutting.
 This will match the settings in the [render.yaml](render.yaml) file.
 
-Your repo should be accessible in: https://github.com/KGmajor/i_suck_at_interviewingBE
+Your repo should be accessible in: https://github.com/KGmajor/ISA_interviewing
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
 
