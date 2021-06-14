@@ -10,7 +10,7 @@ class Config(object):
     DEBUG = False
     TESTING = False
     # SQLAlchemy
-    uri_template = "postgresql+psycopg2://{user}:{pw}@{url}/{db}"
+    uri_template = "postgres://{user}:{pw}@{url}/{db}"
     SQLALCHEMY_DATABASE_URI = uri_template.format(
         user=POSTGRES_USER, pw=POSTGRES_PASSWORD, 
         url=POSTGRES_URL, db=POSTGRES_DB
