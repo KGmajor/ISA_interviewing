@@ -79,16 +79,8 @@ cd src && gunicorn main:app
 
 ## Continuous Deployment Pipeline
 
-Go live with a Continuous Deployment Pipeline using GitHub and Render's Infrastructure as code.
+We're utilizing a continuous deployment pipeline where all merges on the 'main' branch are 'automagically' deployed into production. When a PR is opened, you'll have a 'staging' URL to view and check for accuracy. 
 
-### Create your repository on GitHub
+[![We deploy on Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/)
 
-Ensure that you are using the GitHub username and project slug that you have entered earlier when cookie cutting.
-This will match the settings in the [render.yaml](render.yaml) file.
 
-Your repo should be accessible in: https://github.com/KGmajor/ISA_interviewing
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-
-* Check the deployed API: `<API URL>/healthcheck`
-* Ensure that you have deleted your resources from Render when you're done.
