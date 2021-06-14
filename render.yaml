@@ -4,7 +4,7 @@ services:
   env: python
   repo: https://github.com/KGmajor/ISA_interviewing.git
   plan: starter
-  branch: master
+  branch: main
   healthCheckPath: /healthcheck
   # Use ./migrations.sh when running for the first time
   buildCommand: "pip install -r requirements.txt && ./run-migrations.sh"
