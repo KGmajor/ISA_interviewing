@@ -13,19 +13,19 @@ services:
   - fromGroup: i_suck_at_interviewingBE-settings
   - key: POSTGRES_URL
     fromDatabase:
-      name: i_suck_at_interviewingBE-db
+      name: isa_interviewing
       property: host
   - key: POSTGRES_USER
     fromDatabase:
-      name: i_suck_at_interviewingBE-db
+      name: isa_interviewing
       property: user
   - key: POSTGRES_PASSWORD
     fromDatabase:
-      name: i_suck_at_interviewingBE-db
+      name: isa_interviewing
       property: password
   - key: POSTGRES_DB
     fromDatabase:
-      name: i_suck_at_interviewingBE-db
+      name: isa_interviewing
       property: database 
 
 envVarGroups:
@@ -38,5 +38,5 @@ envVarGroups:
     
 
 databases:
-- name: i_suck_at_interviewingBE-db
+- name: isa_interviewing
   databaseName: mydb
