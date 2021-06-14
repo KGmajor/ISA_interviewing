@@ -21,7 +21,7 @@ services:
       bash -c "
         flask db init && 
         flask db migrate && 
-        flask db upgrade"
+        # flask db upgrade"
     depends_on:
       - db
   api:
