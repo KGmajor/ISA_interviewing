@@ -1,12 +1,10 @@
-FROM python:3.6
+FROM python:3.8
 
 RUN mkdir -p /flask-app
 WORKDIR /flask-app
 
 # Copy files
 COPY ./requirements.txt ./
-COPY ./setup.py ./
-# COPY ./run-migrations.sh ./
 
 # Copy folders
 COPY ./src ./src

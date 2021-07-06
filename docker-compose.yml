@@ -1,38 +1,24 @@
 version: '3.2'
 services:
-  db:
-    image: postgres:12.2
-    restart: always
-    environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: example
-    ports:
-      - "5432:5432"
-  run-migrations:
+  app:
     build: .
-    restart: on-failure
-    environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: example
-      POSTGRES_URL: db:5432
-    command: > 
-      bash -c "
-        flask db init && 
-        flask db migrate &&
-        flask db upgrade"
     depends_on:
       - db
-  api:
-    build: .
-    restart: on-failure
-    environment:
-      POSTGRES_DB: mydb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: example
-      POSTGRES_URL: db:5432
     ports:
       - "5000:5000"
-    depends_on: 
-      - db
+    environment:
+      SECRET_KEY: coolapp
+      MYSQL_USER: ISA_interviewing
+      MYSQL_PASSWORD: interviews
+      MYSQL_DB: isai
+
+  db:
+    image: mysql/mysql-server:8.0.23
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_USER: ISA_interviewing
+      MYSQL_PASSWORD: interviews
+      MYSQL_DB: isai
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro

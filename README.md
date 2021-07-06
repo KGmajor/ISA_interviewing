@@ -27,14 +27,22 @@ You can even [report a bug or request a feature](https://github.com/kgmajor/ISA_
 
 Use docker-compose
 ```
-docker-compose up
+docker compose up
+
 ```
+If you get an error that says "Error response from daemon: Duplicate mount point:"
+
+```
+docker compose down
+
+```
+Then try the 'up' command again!
 
 ## Run the flask app outside docker
 
-Bring up the Postgres DB container
+Bring up the MySQL DB container
 ```
-docker-compose up -d db
+docker compose up -d db
 ```
 
 Install requirements.
@@ -46,16 +54,11 @@ pip install -r requirements.txt
 Initialise environment variables. The `.env` is used in `docker-compose.yml`.
 ```
 export FLASK_APP="src/main.py"
-export POSTGRES_URL="127.0.0.1:5432"
-export POSTGRES_DB="mydb"
-export POSTGRES_USER="postgres"
-export POSTGRES_PASSWORD="example"
-```
-
-Run migrations
-```
-chmod+x run-migrations.sh
-./run-migrations.sh
+export SECRET_KEY="cool_app_bro"
+export MYSQL_HOST="127.0.0.1:5432"
+export MYSQL_DB="mydb"
+export MYSQL_USER="postgres"
+export MYSQL_PASSWORD="example"
 ```
 
 Run flask
