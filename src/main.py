@@ -9,8 +9,8 @@ app = Flask(__name__)
   
 app.secret_key = os.environ["SECRET_KEY"]
 
-connection = mysql.connector.connect(user = os.environ["MYSQL_USER"], password = os.environ["MYSQL_PASSWORD"], 
-                        database = os.environ["MYSQL_DB"], host='0.0.0.0', port = 3306)
+# connection = mysql.connector.connect(user = os.environ["MYSQL_USER"], password = os.environ["MYSQL_PASSWORD"], 
+#                         database = os.environ["MYSQL_DB"], host='0.0.0.0', port = 3306)
 
   
 @app.route('/healthcheck', methods=['GET'])
