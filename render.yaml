@@ -6,8 +6,7 @@ services:
   plan: starter
   branch: main
   healthCheckPath: /healthcheck
-  # Use ./migrations.sh when running for the first time
-  buildCommand: "pip install -r requirements.txt && ./run-migrations.sh"
+  buildCommand: "pip install -r requirements.txt"
   startCommand: "cd src && gunicorn main:app"
   envVars:
   - fromGroup: ISA_interviewing-settings
@@ -38,5 +37,5 @@ envVarGroups:
     
 
 databases:
-- name: ISA_interviewing-db
+- name: ISA_interviewing_db
   databaseName: mydb
